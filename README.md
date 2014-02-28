@@ -1,7 +1,7 @@
 git annex darktable integration
 ===============================
 
-This integrates git annex into darktable, using the following workflow:
+This integrates [git annex][] into [darktable][], using the following workflow:
 
 * The photos you wish to use this for must already be in an initialized git
   annex repository. They don't need to be added, however.
@@ -30,4 +30,5 @@ To use, place `git-annex.lua` in your `~/.config/darktable/lua/` directory
 
 to your `~/.config/darktable/luarc` file, creating it if necessary.
 
-
+[git annex]: https://git-annex.branchable.com/
+[darktable]: http://www.darktable.org/
