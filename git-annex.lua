@@ -23,6 +23,43 @@ dt.register_event("shortcut", function()
     get_status(dt.gui.action_images)
 end, "git annex: status")
 
+dt.register_lib(
+	"gitAnnex",  -- Module name
+	"git annex", -- Name
+	true,        -- Expandable
+	false,       -- Resetable
+	{[dt.gui.views.lighttable] = {"DT_UI_CONTAINER_PANEL_RIGHT_CENTER", 20}},   -- containers
+	dt.new_widget("box")
+	{
+		orientation = "vertical",
+		dt.new_widget("button")
+		{
+			label = "add",
+			tooltip = "Add to git annex",
+			clicked_callback = function() git_annex("add", dt.gui.action_images, "adding") end
+		},
+		dt.new_widget("button")
+		{
+			label = "get",
+			tooltip = "Get from remote repo",
+			clicked_callback = function() git_annex("get", dt.gui.action_images, "getting") end
+		},
+		dt.new_widget("button")
+		{
+			label = "drop",
+			tooltip = "Drop from local repo",
+			clicked_callback = function() git_annex("drop", dt.gui.action_images, "dropping") end
+		},
+		dt.new_widget("button")
+		{
+			label = "status",
+			tooltip = "Update status tags",
+			clicked_callback = function() get_status(dt.gui.action_images) end
+		},
+	},
+	nil, -- view enter
+	nil  -- view leave
+)
 
 -- executes git annex with the given subcommand on the selected files
 --   cmd - string, the git annex subcommand
