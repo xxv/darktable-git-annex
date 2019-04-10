@@ -136,7 +136,7 @@ function get_status(images)
         if #filenames > 25 then
             filenames = {}
         end
-        out=call_git_annex_p(path, "whereis", "-j", unpack(filenames))
+        out=call_git_annex_p(path, "whereis", "-j", table.unpack(filenames))
         for line in out:lines() do
             status = json.decode(line)
             whereis = status["whereis"]
